@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Curso de jQuery</title>
+  <link rel="stylesheet" href="js/jquery-ui.min.css" />
+  <script src="js/external/jquery/jquery.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+  <style>
+    #bloco {
+      width: 200px;
+      height: 200px;
+      background-color: #000;
+    }
+    #bloco2 {
+      width: 200px;
+      height: 200px;
+      background-color: #ff0000;
+    }
+    .container {
+      display: flex;
+      justify-content: space-around;
+    }
+  </style>
+  <script>
+    $(document).ready(function () {
+      $("#bloco").on({
+        click: () => { $("#texto").text("Clique no quadradro preto"); },
+        mouseenter: () => { $("#texto").text("Mouse entrou no quadradro"); },
+        mouseleave: () => { $("#texto").text("Mouse saiu do quadradro"); },
+        dblclick: () => { $("#texto").text("Clique duplo no quadradro"); },
+      })
+
+      $("#bloco2").click(()=>{
+        $("#bloco").trigger("click")
+      })
+
+      $("#botao").click(function (e) { 
+        e.preventDefault();
+        $("#texto").text("Limpo");
+      });
+    })
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <div id="bloco"></div>
+    <div id="bloco2"></div>
+  </div>
+  <p id="texto"></p>
+  <button type="button" id="botao">Limpar</button>
+
+</body>
+
+</html>
