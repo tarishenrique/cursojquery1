@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="resources/js/jquery-ui.min.css" />
+  <script src="resources/js/external/jquery/jquery.js"></script>
+  <script src="resources/js/jquery-ui.min.js"></script>
+
+  <link href="resources/css/bootstrap.min.css" rel="stylesheet">
+  <script src="resources/js/bootstrap.bundle.min.js"></script>
+
+  <title>Curso de jQuery</title>
+  <style>
+
+  </style>
+  <script>
+    $(document).ready(function () {
+
+      $('#texto1').click((event) => {
+        $('#resultado').text("Id do Objeto que foi clicado: " + event.target.id);
+      })
+      $('#texto2').click(function (event) {
+        $('#resultado').text("Id do Objeto que foi clicado: " + event.target.id);
+      })
+
+      $("button").click(function (event) {
+        $('#resultado2').text("Classe do Objeto que foi clicado: " + event.target.className);
+      })
+
+      $(document).click(function (event) {
+        if(event.target.id == "resultado" || event.target.id == "resultado2"){
+          alert('Resultado clicado')
+        }
+      })
+
+    });
+
+  </script>
+</head>
+
+<body>
+  <div class="container-fluid mt-3">
+
+    <div class="row">
+      <div class="col-sm-2">
+        <div class="btn-group-vertical" role="group" aria-label="Basic example">
+          <button id="texto1" type="button" class="btn btn-primary">Curso jQuery</button>
+          <button id="texto2" type="button" class="btn btn-secondary">Aula 08</button>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="btn-group-vertical" role="group" aria-label="Basic example">
+          <button id="texto3" type="button" class="btn btn-primary">Curso jQuery - 2</button>
+          <button id="texto4" type="button" class="btn btn-secondary">Aula 08 - 2</button>
+        </div>
+      </div>
+    </div>
+
+    <br/>
+
+    <div class="row">
+      <div class="col-sm-4">
+        <p id="resultado"></p>
+        <p id="resultado2"></p>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>
